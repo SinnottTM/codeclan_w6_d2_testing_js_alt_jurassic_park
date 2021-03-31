@@ -55,4 +55,33 @@ Park.prototype.totalRevenuePerYear = function () {
     return totalRevenue
 }
 
+Park.prototype.removeBySpecies = function (species) {
+    const newDinosaurs = [];
+    for (const dinosaur of this.dinosaurs) {
+        if (dinosaur.species !== species) {
+            newDinosaurs.push(dinosaur);
+        }
+    }
+    this.dinosaurs = newDinosaurs;
+}
+
+Park.prototype.numberOfDinosaursByDiet = function () {
+    const numberOfDinosaursByDiet = {};
+}
+
+Park.prototype.numberOfDinosaursByDiet = function () {
+    const numberOfDinosaursByDiet = {};
+
+    for (const dinosaur of this.dinosaurs) {
+        if (numberOfDinosaursByDiet[dinosaur.diet]) {
+            numberOfDinosaursByDiet[dinosaur.diet] += 1;
+        }
+        else {
+            numberOfDinosaursByDiet[dinosaur.diet] = 1;
+        }
+    }
+
+    return numberOfDinosaursByDiet;
+}
+
 module.exports = Park;
