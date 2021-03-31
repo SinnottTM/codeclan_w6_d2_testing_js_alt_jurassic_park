@@ -10,10 +10,10 @@ describe('Park', function () {
 
   beforeEach(function () {
     park = new Park('Jurassic Park', 50);
-    dinosaur = new Dinosaur("t-rex", "carnivore", 100);
-    dinosaur2 = new Dinosaur("triceratops", "omnivore", 80);
-    dinosaur3 = new Dinosaur("allosaurus", "carnivore", 20);
-    dinosaur4 = new Dinosaur("ultrasauros", "omnivore", 50);
+    dinosaur = new Dinosaur("T-rex", "carnivore", 100);
+    dinosaur2 = new Dinosaur("Triceratops", "omnivore", 80);
+    dinosaur3 = new Dinosaur("Allosaurus", "carnivore", 20);
+    dinosaur4 = new Dinosaur("Ultrasauros", "omnivore", 50);
   });
 
   it('should have a name', function () {
@@ -31,17 +31,16 @@ describe('Park', function () {
     assert.deepStrictEqual(actual, []);
   });
 
-
-  it('should be able to add a dinosaur to its collection', function () {
-    park.addDinosaur(dinosaur);
-    const actual = park.dinosaurs[0].species;
-    assert.deepStrictEqual(actual, "t-rex")
-  });
-
-  it('should be able to add a dinosaur to its collection alternative', function () {
+  it('should be able to add a dinosaur to its collection, first attempt', function () {
     park.addDinosaur(dinosaur);
     const actual = park.dinosaurs;
     assert.deepStrictEqual(actual, [dinosaur])
+  });
+
+  it('should be able to add a dinosaur to its collection, alternative', function () {
+    park.addDinosaur(dinosaur);
+    const actual = park.dinosaurs[0].species;
+    assert.deepStrictEqual(actual, "T-rex")
   });
 
   it('should be able to remove a dinosaur from its collection', function () {
@@ -49,13 +48,13 @@ describe('Park', function () {
     park.addDinosaur(dinosaur2);
     park.removeDinosaur(dinosaur);
     const actual = park.dinosaurs[0].species;
-    assert.deepStrictEqual(actual, "triceratops")
+    assert.deepStrictEqual(actual, "Triceratops")
   });
 
   it('should be able to find the dinosaur that attracts the most visitors', function () {
     park.addDinosaur(dinosaur);
     park.addDinosaur(dinosaur2);
-    const actual = park.findMostVisitors();
+    const actual = park.findMostVisitedDino();
     assert.strictEqual(actual, dinosaur);
   });
 
@@ -64,9 +63,9 @@ describe('Park', function () {
     park.addDinosaur(dinosaur2);
     park.addDinosaur(dinosaur3);
     park.addDinosaur(dinosaur4);
-    dinosaur5 = new Dinosaur("allosaurus", "carnivore", 20);
+    dinosaur5 = new Dinosaur("Allosaurus", "carnivore", 20);
     park.addDinosaur(dinosaur5);
-    const actual = park.findAllSpecies("allosaurus");
+    const actual = park.findAllSpecies("Allosaurus");
     assert.deepStrictEqual(actual, [dinosaur3, dinosaur5]);
   });
 

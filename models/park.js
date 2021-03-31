@@ -13,16 +13,16 @@ Park.prototype.removeDinosaur = function (dinosaur) {
     this.dinosaurs.splice(index, 1);
 }
 
-Park.prototype.findMostVisitors = function () {
-    let maxVisitors = 0;
-    let visitedDinosaur;
+Park.prototype.findMostVisitedDino = function () {
+    let totalVisitors = 0;
+    let mostVisitedDinosaur;
     for (let dinosaur of this.dinosaurs) {
-        if (dinosaur.guestsAttractedPerDay > maxVisitors) {
-            maxVistors = dinosaur.guestsAttractedPerDay;
-            visitedDinosaur = dinosaur;
+        if (dinosaur.guestsAttractedPerDay > totalVisitors) {
+            totalVisitors = dinosaur.guestsAttractedPerDay;
+            mostVisitedDinosaur = dinosaur;
         };
     };
-    return visitedDinosaur;
+    return mostVisitedDinosaur;
 };
 
 Park.prototype.findAllSpecies = function (species) {
