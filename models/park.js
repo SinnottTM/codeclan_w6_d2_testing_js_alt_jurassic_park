@@ -14,10 +14,10 @@ Park.prototype.removeDinosaur = function (dinosaur) {
 }
 
 Park.prototype.findMostVisitors = function () {
-    let maxVistors = 0;
+    let maxVisitors = 0;
     let visitedDinosaur;
     for (let dinosaur of this.dinosaurs) {
-        if (dinosaur.guestsAttractedPerDay > maxVistors) {
+        if (dinosaur.guestsAttractedPerDay > maxVisitors) {
             maxVistors = dinosaur.guestsAttractedPerDay;
             visitedDinosaur = dinosaur;
         };
